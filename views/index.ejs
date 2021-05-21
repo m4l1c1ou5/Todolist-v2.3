@@ -1,0 +1,50 @@
+<%- include("header") -%>
+    <div class="columns">
+        <div class="column">
+            <div class="card">
+                <div class="card-content">
+                    <p class="title is-4">Your TodoList</p>
+                    <div class="content">
+                        <div class="menu">
+                        <ol class="menu-list">
+                            <% for(i=0;i<arr.length;i++){ %>
+                                <% if(i%2){ %>
+                                <li><p style="color:cyan"><%= arr[i].item %></p></li>
+                                <% }else{ %>
+                                <li><p style="color:darkorange"><%= arr[i].item %></p></li>
+                            <% }} %>
+                        </ol>
+                        </div>
+                    </div>
+                    <p class="title is-4">Done an Item??</p>
+                    <form method="POST" action="/" onsubmit=alter()>
+                        <div class="field">
+                        <input class="input is-danger" type="number" name="item_no" placeholder="Item No." required>
+                        </div>
+                        <div class="field">
+                        <button class="button is-warning" type="submit" name="sub" value="rem">Remove the Item</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="card">
+            <div class="card-content">
+            <p class="title is-4">Add more Item to Todolist!</p>
+            <form method="POST" action="/">
+                <div class="field">
+                <input class="input is-primary is-focused" type="text" name="item" placeholder="Item Name" required>
+                </div>
+                <div class="field">
+                    <input class="input is-primary is-focused" type="text" name="label" placeholder="Label-name" required>
+                </div>
+                <div class="field">
+                <button class="button is-warning" type="submit"name="sub" value="add">Add to my list</button>
+                </div>
+            </form>
+            </div>
+            </div>
+        </div>
+    </div>    
+<%- include("footer") -%>
